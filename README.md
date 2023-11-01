@@ -21,9 +21,13 @@ The provided Python script `noisy_optimization.py` demonstrates the optimization
 2. **Constants**:
 
 **N_QUBITS**: The number of qubits in the quantum circuit.
+
 **NOISE_STRENGTH**: The strength of depolarizing noise applied to each qubit.
+
 **NUM_LAYERS**: The number of layers in the variational part of the circuit.
+
 **NUM_STEPS**: The number of optimization steps.
+
 **STEP_SIZE**: The step size for the Adam optimizer.
 
 3.  **Quantum Device Initialization**: A quantum device is initialized using PennyLane's qml.device. It is set to a default mixed-state quantum device with a specified numberof qubits and a number of shots (measurements).
