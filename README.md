@@ -48,7 +48,7 @@ These results provide insights into how noise affects the optimization process a
 
 **A sample result might be:** 
 
-''''Optimized parameters with noise: [ 0.92412072 -0.03054978 -0.22668299 -0.15816225  0.63331806  0.52812374  0.27499776  0.84965232] Final cost with noise: 0.002784''''
+``Optimized parameters with noise: [ 0.92412072 -0.03054978 -0.22668299 -0.15816225  0.63331806  0.52812374  0.27499776  0.84965232] Final cost with noise: 0.002784``
 
 
 Feel free to experiment with different values of `N_QUBITS`, `NOISE_STRENGTH`, `NUM_LAYERS`, `NUM_STEPS`, and `STEP_SIZE` to observe how they impact the optimization process.
