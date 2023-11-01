@@ -16,17 +16,29 @@ This repository contains a Python script that demonstrates the optimization of p
 ## Code Description
 The provided Python script `noisy_optimization.py` demonstrates the optimization of a noisy quantum circuit using PennyLane. Below is an overview of the key components:
 
-1. **Quantum Circuit Definition**: The code defines a quantum circuit using PennyLane. The circuit includes:
+1. **Importing Libraries**: The necessary libraries, including PennyLane and NumPy, are imported at the beginning of the script.
+
+2. **Constants**:
+
+**N_QUBITS**: The number of qubits in the quantum circuit.
+**NOISE_STRENGTH**: The strength of depolarizing noise applied to each qubit.
+**NUM_LAYERS**: The number of layers in the variational part of the circuit.
+**NUM_STEPS**: The number of optimization steps.
+**STEP_SIZE**: The step size for the Adam optimizer.
+
+3.  **Quantum Device Initialization**: A quantum device is initialized using PennyLane's qml.device. It is set to a default mixed-state quantum device with a specified numberof qubits and a number of shots (measurements).
+
+4. **Quantum Circuit Definition**: The code defines a quantum circuit using PennyLane. The circuit includes:
    - Encoding of input data using RX gates.
    - Application of depolarizing noise to each qubit.
    - Variational layers consisting of RX and RY gates, as well as CNOT gates for entanglement.
    - Measurement of Pauli-Z operators on each qubit.
 
-2. **Cost Function**: The `noisy_cost` function calculates the cost of the quantum circuit. It computes predictions by running the circuit and calculates the sum of squared differences between the predictions and the target values.
+5. **Cost Function**: The `noisy_cost` function calculates the cost of the quantum circuit. It computes predictions by running the circuit and calculates the sum of squared differences between the predictions and the target values.
 
-3. **Optimization**: The `optimize_with_noise` function is responsible for optimizing the circuit's parameters. It performs optimization using the Adam optimizer for a specified number of steps. In each step, it updates the parameters based on the cost function.
+6. **Optimization**: The `optimize_with_noise` function is responsible for optimizing the circuit's parameters. It performs optimization using the Adam optimizer for a specified number of steps. In each step, it updates the parameters based on the cost function.
 
-4. **Main Execution**: The `optimize_with_noise` function is called when the script is run.
+7. **Main Execution**: The `optimize_with_noise` function is called when the script is run.
 
 ## How to Run
 1. Ensure you have Python, PennyLane, and NumPy installed on your system.
