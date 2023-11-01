@@ -35,7 +35,7 @@ The provided Python script `noisy_optimization.py` demonstrates the optimization
 
 3. Open a terminal or command prompt and navigate to the directory containing the script.
 
-4. Run the script using the following command: ''python noisy_optimization.py''
+4. Run the script using the following command: ````python noisy_optimization.py````
 
 
 ## Expected Results
