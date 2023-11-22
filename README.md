@@ -1,6 +1,8 @@
-# Noisy_Quantum_circuit
+# Quantum Circuit Optimization with Noise
 
 This repository contains a Python script that demonstrates the optimization of parameters in a quantum circuit in the presence of noise using the PennyLane quantum machine learning library.
+
+The noisy quantum circuit consists of multiple layers of parameterized quantum gates with added depolarizing noise. The optimization is performed to minimize the cost function, which measures the squared difference between the noisy circuit predictions and target values.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -14,57 +16,66 @@ This repository contains a Python script that demonstrates the optimization of p
 - NumPy library (install using `pip install numpy`)
 
 ## Code Description
-The provided Python script `noisy_optimization.py` demonstrates the optimization of a noisy quantum circuit using PennyLane. Below is an overview of the key components:
 
-1. **Importing Libraries**: The necessary libraries, including PennyLane and NumPy, are imported at the beginning of the script.
+The provided Python script (`optimize_with_noise.py`) demonstrates quantum circuit optimization using PennyLane with the introduction of depolarizing noise. Here's an in-depth overview of the key components:
 
-2. **Constants**:
+## Quantum Circuit
 
-   **N_QUBITS**: The number of qubits in the quantum circuit.
+- The quantum circuit is designed with `N_QUBITS` qubits and `NUM_LAYERS` layers of parameterized gates.
+- Depolarizing noise is added using `qml.DepolarizingChannel` to each qubit with a strength defined by `NOISE_STRENGTH`.
 
-   **NOISE_STRENGTH**: The strength of depolarizing noise applied to each qubit.
+## Optimization Process
 
-   **NUM_LAYERS**: The number of layers in the variational part of the circuit.
+- The script utilizes the Adam optimizer from PennyLane (`qml.AdamOptimizer`) to minimize the cost function.
+- The cost function (`noisy_cost`) measures the squared difference between the noisy circuit predictions and target values.
 
-   **NUM_STEPS**: The number of optimization steps.
+## Adjustable Parameters
 
-   **STEP_SIZE**: The step size for the Adam optimizer.
-
-3.  **Quantum Device Initialization**: A quantum device is initialized using PennyLane's qml.device. It is set to a default mixed-state quantum device with a specified numberof qubits and a number of shots (measurements).
-
-4. **Quantum Circuit Definition**: The code defines a quantum circuit using PennyLane. The circuit includes:
-   - Encoding of input data using RX gates.
-   - Application of depolarizing noise to each qubit.
-   - Variational layers consisting of RX and RY gates, as well as CNOT gates for entanglement.
-   - Measurement of Pauli-Z operators on each qubit.
-
-5. **Cost Function**: The `noisy_cost` function calculates the cost of the quantum circuit. It computes predictions by running the circuit and calculates the sum of squared differences between the predictions and the target values.
-
-6. **Optimization**: The `optimize_with_noise` function is responsible for optimizing the circuit's parameters. It performs optimization using the Adam optimizer for a specified number of steps. In each step, it updates the parameters based on the cost function.
-
-7. **Main Execution**: The `optimize_with_noise` function is called when the script is run.
+- `N_QUBITS`: Number of qubits in the quantum circuit.
+- `NOISE_STRENGTH`: Strength of depolarizing noise in the circuit.
+- `NUM_LAYERS`: Number of layers in the quantum circuit.
+- `NUM_STEPS`: Number of optimization steps.
+- `STEP_SIZE`: Step size for the Adam optimizer.
 
 ## How to Run
-1. Ensure you have Python, PennyLane, and NumPy installed on your system.
 
-2. Download the `noisy_optimization.py` script from this repository.
+1. Install dependencies:
+    ```bash
+    pip install pennylane numpy
+    ```
 
-3. Open a terminal or command prompt and navigate to the directory containing the script.
-
-4. Run the script using the following command: ````python noisy_optimization.py````
-
+2. Run the script:
+    ```bash
+    python optimize_with_noise.py
+    ```
 
 ## Expected Results
-When you run the script, it will optimize the parameters of the quantum circuit with noisy operations using the Adam optimizer. You can expect the following results to be printed:
 
-1. The optimized parameters with noise.
-2. The final cost with noise, which indicates how well the quantum circuit's predictions match the target values.
+After execution, the script provides the following insights:
 
-These results provide insights into how noise affects the optimization process and the final parameter values of the quantum circuit.
+- Initial and optimized parameters with noise.
+- Final cost with noise.
+- Progress updates, including the cost every 50 optimization steps.
+
+Feel free to explore and tweak the script's parameters to observe their impact on the quantum circuit optimization process.
 
 **A sample result might be:** 
 
-``Optimized parameters with noise: [ 0.92412072 -0.03054978 -0.22668299 -0.15816225  0.63331806  0.52812374  0.27499776  0.84965232] Final cost with noise: 0.002784``
+``Step 1/500 - Cost: 0.42117200580613057
+Step 51/500 - Cost: 0.00532150966495609
+Step 101/500 - Cost: 0.0009827634183996485
+Step 151/500 - Cost: 0.003632380964203527
+Step 201/500 - Cost: 0.008309205200032511
+Step 251/500 - Cost: 0.003367313941022975
+Step 301/500 - Cost: 0.004483429754468289
+Step 351/500 - Cost: 0.0004644365611147626
+Step 401/500 - Cost: 0.0016671744886384318
+Step 451/500 - Cost: 0.0009698926507689575
+
+Optimization complete.
+Initial parameters: [-0.0053129   0.02964236 -0.03075332  0.00614341 -0.08388644 -0.08074193]
+Optimized parameters with noise: [ 0.2750713  -0.17449515 -0.74842674  1.19032489  0.04084672 -0.80055725]
+Final cost with noise: 0.0019116677791764314``
 
 
 Feel free to experiment with different values of `N_QUBITS`, `NOISE_STRENGTH`, `NUM_LAYERS`, `NUM_STEPS`, and `STEP_SIZE` to observe how they impact the optimization process.
