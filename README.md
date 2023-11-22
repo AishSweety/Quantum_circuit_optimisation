@@ -17,7 +17,7 @@ The noisy quantum circuit consists of multiple layers of parameterized quantum g
 
 ## Code Description
 
-The provided Python script (`Noisy_quantum_circuit.py`) demonstrates quantum circuit optimization using PennyLane with the introduction of depolarizing noise. Here's an in-depth overview of the key components:
+The provided Python script (`Noisy_Quantum_circuit.py`) demonstrates quantum circuit optimization using PennyLane with the introduction of depolarizing noise. Here's an in-depth overview of the key components:
 
 ## Quantum Circuit
 
@@ -46,7 +46,7 @@ The provided Python script (`Noisy_quantum_circuit.py`) demonstrates quantum cir
 
 2. Run the script:
     ```bash
-    python Noisy_quantum_circuit.py
+    python Noisy_Quantum_circuit.py
     ```
 
 ## Expected Results
