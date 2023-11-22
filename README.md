@@ -75,10 +75,12 @@ Step 451/500 - Cost: 0.0009698926507689575
 Optimization complete.
 Initial parameters: [-0.0053129   0.02964236 -0.03075332  0.00614341 -0.08388644 -0.08074193]
 Optimized parameters with noise: [ 0.2750713  -0.17449515 -0.74842674  1.19032489  0.04084672 -0.80055725]
-Final cost with noise: 0.0019116677791764314```
+Final cost with noise: 0.0019116677791764314
+```
 
 
 Feel free to experiment with different values of `N_QUBITS`, `NOISE_STRENGTH`, `NUM_LAYERS`, `NUM_STEPS`, and `STEP_SIZE` to observe how they impact the optimization process.
+
 
 For any questions or issues, please refer to the [PennyLane documentation](https://pennylane.ai/qml/) or the [PennyLane GitHub repository](https://github.com/PennyLaneAI/pennylane).
 
