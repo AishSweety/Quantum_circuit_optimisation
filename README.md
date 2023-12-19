@@ -16,3 +16,5 @@ Feel free to experiment with different values of `N_QUBITS`, `NOISE_STRENGTH`, `
 
 This code illustrates a basic quantum circuit optimization using PennyLane and PyTorch, demonstrating how the circuit parameters evolve to minimize the cost function and provides insight into the optimization process with the help of visualization.
 
+### Quantum weather predictor
+This code implements a quantum machine learning model for weather prediction using PennyLane. It defines a quantum circuit (`weather_circuit`) that processes a sequence of the last 7 days' weather data and is trained to minimize the mean squared error between quantum predictions and actual weather conditions. The model utilizes a gradient descent optimizer and is trained on randomly generated weather sequences. The code includes a function (`predict`) for making predictions based on the trained quantum circuit and visualizes the trained circuit for a randomly generated weather sequence.
