@@ -1,4 +1,4 @@
-# Quantum Circuit Optimization with Noise
+### Quantum Circuit Optimization with Noise
 
 This Python script demonstrates demonstrates quantum circuit optimization using PennyLane with the introduction of depolarizing noise. The noisy quantum circuit consists of multiple layers of parameterized quantum gates with added depolarizing noise. The optimization is performed to minimize the cost function (using the Adam optimizer from PennyLane), which measures the squared difference between the noisy circuit predictions and target values.
 
